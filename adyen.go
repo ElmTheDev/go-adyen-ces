@@ -58,21 +58,21 @@ type CardForm struct {
     DfVal           string `json:"df_val"` //理论上只指纹数据
 }
 
-func NewAdYen(publicKey string) *Adyen {
-    yen := &Adyen{}
-    yen.rsa = NewRsa()
-    yen.prefix = "adyenjs_"
-    yen.version = "0_1_21"
-    yen.aesKey = make([]byte, 32)
-    yen._tagSize = 8
-    yen._nonceSize = 12
+func NewAdYen(publicKey string, version string) *Adyen {
+	yen := &Adyen{}
+	yen.rsa = NewRsa()
+	yen.prefix = "adyenjs_"
+	yen.version = fmt.Sprintf("0_1_%s", version)
+	yen.aesKey = make([]byte, 32)
+	yen._tagSize = 8
+	yen._nonceSize = 12
 
-    //如果密钥错误直接推出
-    err := yen.rsa.SetPublicKey(publicKey, 65537)
-    if err != nil {
-        panic(err)
-    }
-    return yen
+	//如果密钥错误直接推出
+	err := yen.rsa.SetPublicKey(publicKey, 65537)
+	if err != nil {
+		panic(err)
+	}
+	return yen
 }
 
 func (yen *Adyen) marshal(data interface{}) []byte {
