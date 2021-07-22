@@ -1,15 +1,16 @@
 package adyen
 
 import (
-    "crypto/aes"
-    "encoding/base64"
-    "encoding/json"
-    "fmt"
-    "github.com/pion/dtls/v2/pkg/crypto/ccm"
-    "math/rand"
-    "reflect"
-    "strings"
-    "time"
+	"crypto/aes"
+	"encoding/base64"
+	"encoding/json"
+	"fmt"
+	"math/rand"
+	"reflect"
+	"strings"
+	"time"
+
+	"github.com/pion/dtls/v2/pkg/crypto/ccm"
 )
 
 type Adyen struct {
