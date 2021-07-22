@@ -1,4 +1,4 @@
-module github.com/ElmTheDev/adyen
+module github.com/ElmTheDev/go-adyen-ces
 
 go 1.13
 
